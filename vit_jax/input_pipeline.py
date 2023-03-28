@@ -39,7 +39,7 @@ def get_tfds_info(dataset, split):
   data_builder = tfds.builder(dataset)
   print(data_builder)
   return dict(
-      num_examples=data_builder.info.splits[split].num_examples,
+      # num_examples=data_builder.info.splits[split].num_examples,
       num_classes=data_builder.info.features['label'].num_classes,
       int2str=data_builder.info.features['label'].int2str,
       examples_glob=None,
