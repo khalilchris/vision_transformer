@@ -35,11 +35,9 @@ MAX_IN_MEMORY = 200_000
 
 def get_tfds_info(dataset, split):
   """Returns information about tfds dataset -- see `get_dataset_info()`."""
-  print("we are inside get tfds info")
   data_builder = tfds.builder(dataset)
-  print(data_builder)
   return dict(
-      # num_examples=data_builder.info.splits[split].num_examples,
+      num_examples=data_builder.info.splits[split].num_examples,
       num_classes=data_builder.info.features['label'].num_classes,
       int2str=data_builder.info.features['label'].int2str,
       examples_glob=None,
