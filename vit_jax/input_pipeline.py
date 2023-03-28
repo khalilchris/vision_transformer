@@ -37,6 +37,7 @@ def get_tfds_info(dataset, split):
   """Returns information about tfds dataset -- see `get_dataset_info()`."""
   print("we are inside get tfds info")
   data_builder = tfds.builder(dataset)
+  print(data_builder)
   return dict(
       num_examples=data_builder.info.splits[split].num_examples,
       num_classes=data_builder.info.features['label'].num_classes,
@@ -74,7 +75,6 @@ def get_dataset_info(dataset, split):
     - int2str: Function converting class id to class name.
     - examples_glob: Glob to select all files, or None (for tfds dataset).
   """
-  print("we are inside get dataset info")
   
   directory = os.path.join(dataset, split)
   if os.path.isdir(directory):
